@@ -5,11 +5,11 @@ Home: https://github.com/jupyter-widgets/jupyterlab-sidecar
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sidecar-feedstock/blob/master/LICENSE.txt)
 
 Summary: A sidecar output widget for JupyterLab
 
-
+Development: https://github.com/jupyter-widgets/jupyterlab-sidecar
 
 Current build status
 ====================
