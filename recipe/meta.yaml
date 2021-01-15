@@ -1,5 +1,5 @@
 {% set name = "sidecar" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3e79de269ddd2c0eff1cb26025cb9f434cf9914b777cf03eeab8347f6de7160e
+  sha256: 5ea7054456f0e716f0e9636563db24b6f484192694bd098368b7a9b67d722978
 
 build:
   noarch: python
@@ -16,16 +16,20 @@ build:
 
 requirements:
   host:
-    - python
+    - python  >=3.6
     - pip
-    - nodejs
+    - jupyter-packaging  >=0.7.9
   run:
+    - python  >=3.6
     - ipywidgets >=7.5.0
-    - python
+    - jupyterlab >=3,<4
 
 test:
   imports:
     - sidecar
+  commands:
+    - test -f ${PREFIX}/share/jupyter/labextensions/@jupyter-widgets/jupyterlab-sidecar/package.json                                      # [unix]
+    - if exist %PREFIX%\\share\\jupyter\\labextensions\\@jupyter-widgets\\jupyterlab-sidecar\\package.json (exit 0) else (exit 1)         # [win]
 
 about:
   home: https://github.com/jupyter-widgets/jupyterlab-sidecar
