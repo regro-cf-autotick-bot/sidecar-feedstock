@@ -18,7 +18,7 @@ requirements:
   host:
     - python  >=3.6
     - pip
-    - jupyter-packaging  >=7.9
+    - jupyter-packaging  >=0.7.9
   run:
     - python  >=3.6
     - ipywidgets >=7.5.0
