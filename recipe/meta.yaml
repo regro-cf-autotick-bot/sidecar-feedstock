@@ -28,11 +28,7 @@ test:
   imports:
     - sidecar
   commands:
-    - test -f ${PREFIX}/share/jupyter/nbextensions/@jupyter-widgets/jupyterlab-sidecar/extension.js                                       # [unix]
-    - test -f ${PREFIX}/share/jupyter/nbextensions/@jupyter-widgets/jupyterlab-sidecar/index.js                                           # [unix]
     - test -f ${PREFIX}/share/jupyter/labextensions/@jupyter-widgets/jupyterlab-sidecar/package.json                                      # [unix]
-    - if exist %PREFIX%\\share\\jupyter\\nbextensions\\@jupyter-widgets\\jupyterlab-sidecar\\extension.js (exit 0) else (exit 1)          # [win]
-    - if exist %PREFIX%\\share\\jupyter\\nbextensions\\@jupyter-widgets\\jupyterlab-sidecar\\index.js (exit 0) else (exit 1)              # [win]
     - if exist %PREFIX%\\share\\jupyter\\labextensions\\@jupyter-widgets\\jupyterlab-sidecar\\package.json (exit 0) else (exit 1)         # [win]
 
 about:
