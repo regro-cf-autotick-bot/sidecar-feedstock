@@ -16,12 +16,12 @@ build:
 
 requirements:
   host:
-    - python  >=3.6
+    - python  >=3.7
     - pip
     - jupyter-packaging  >=0.7.9
   run:
-    - python  >=3.6
-    - ipywidgets >=7.5.0
+    - python  >=3.7
+    - ipywidgets >=7.6.0,<9
     - jupyterlab >=3,<4
 
 test:
