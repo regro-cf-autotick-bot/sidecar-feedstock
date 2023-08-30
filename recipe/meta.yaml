@@ -1,5 +1,5 @@
 {% set name = "sidecar" %}
-{% set version = "0.5.2" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: fd4558417ce786fb59b81e44f7d6868e4a5beccbdb2ae29506f2b3d1c4f85c80
+  sha256: c3fa1694b5611c1fab9d7a96c07577ba0764068a89b7b39be9b9ce9770e9d363
 
 build:
   noarch: python
@@ -22,7 +22,8 @@ requirements:
   run:
     - python  >=3.7
     - ipywidgets >=7.6.0,<9
-    - jupyterlab >=3,<4
+  run_constrained:
+    - jupyterlab >=4,<5
 
 test:
   imports:
