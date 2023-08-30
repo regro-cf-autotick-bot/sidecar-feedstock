@@ -29,6 +29,8 @@ requirements:
     - jupyterlab >=4,<5
 
 test:
+  requires:
+    - jupyterlab >=4,<5
   imports:
     - sidecar
   commands:
