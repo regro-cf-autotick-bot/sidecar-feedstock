@@ -12,17 +12,18 @@ source:
 build:
   noarch: python
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv  --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python  >=3.7
+    - python >=3.8
     - pip
+    - hatch-nodejs-version
     - hatch-jupyter-builder >=0.8.1
     - hatchling
     - jupyter-packaging  >=0.7.9
   run:
-    - python  >=3.7
+    - python >=3.8
     - ipywidgets >=7.6.0,<9
   run_constrained:
     - jupyterlab >=4,<5
@@ -33,6 +34,9 @@ test:
   commands:
     - test -f ${PREFIX}/share/jupyter/labextensions/@jupyter-widgets/jupyterlab-sidecar/package.json                                      # [unix]
     - if exist %PREFIX%\\share\\jupyter\\labextensions\\@jupyter-widgets\\jupyterlab-sidecar\\package.json (exit 0) else (exit 1)         # [win]
+    - jupyter labextension list
+    - jupyter labextension list 1>labextensions 2>&1
+    - grep -iE "jupyterlab-sidecar.*OK" labextensions
 
 about:
   home: https://github.com/jupyter-widgets/jupyterlab-sidecar
