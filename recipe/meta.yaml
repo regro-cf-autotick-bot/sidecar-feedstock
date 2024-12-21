@@ -6,24 +6,24 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: c3fa1694b5611c1fab9d7a96c07577ba0764068a89b7b39be9b9ce9770e9d363
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv  --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - pip
     - hatch-nodejs-version
     - hatch-jupyter-builder >=0.8.1
     - hatchling
     - jupyter-packaging  >=0.7.9
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - ipywidgets >=7.6.0,<9
   run_constrained:
     - jupyterlab >=4,<5
@@ -31,6 +31,7 @@ requirements:
 test:
   requires:
     - jupyterlab >=4,<5
+    - python {{ python_min }}
   imports:
     - sidecar
   commands:
